@@ -34,6 +34,21 @@ def get_nod(directory: str = r"C:\Users\ved.thakare\OneDrive - University of Vir
     if val == 'time' or val == 'resultant_acceleration':
         return nod
     return nod[:, 1]
+def get_nod_new_dummy(directory: str = r"C:\Users\ved.thakare\OneDrive - University of Virginia\Non Vanilla\finished sim\drop_vent_d3.0_start500_term2000_height6.0_blow_v25000_blow_s300_ea5_sim", val: str = 'x_acceleration'):
+    """
+    # for val it can be x_acceleration or resultant_acceleration
+    Open key file and convert to string
+    :param directory: (string)
+    :param val: (string) - optional parameter with default value 'pressure'
+    :return: ab[:,3]
+    """
+    val = str(val)
+    path = os.path.join(directory, 'binout0003')
+    binout = Binout(path)
 
+    nod = binout.read('nodout', val)
+    if val == 'time' or val == 'resultant_acceleration':
+        return nod
+    return nod[:,4]
 
-get_nod(val='resultant_acceleration')
+#print(get_nod_new_dummy(directory=r"C:\Users\ved.thakare\OneDrive - University of Virginia\Non Vanilla\vanilla_blower_newdummy3- Finished Sim",val='x_acceleration'))
