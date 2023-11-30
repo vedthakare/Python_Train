@@ -157,7 +157,7 @@ for i, paths in enumerate(file_paths):
     # Create a new figure
     plt.figure(i+1)
 
-    # Plot the simulation data
+    # Plot the simulation dataa
     for f, file_path in enumerate(paths):
         # Read time and pressure data from the simulation
         if i == 1:
